@@ -124,7 +124,7 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
                 autoFocus={true}
                 type={'text'}
                 margin={'dense'}
-                label={'Insert label'}
+                label={'输入标签'}
                 onKeyUp={onKeyUpCallback}
                 value={labelName.name}
                 onChange={onChangeCallback}
@@ -139,7 +139,7 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
             />}
             <ImageButton
                 image={'ico/trash.png'}
-                imageAlt={'remove_label'}
+                imageAlt={'删除标签'}
                 buttonSize={{ width: 30, height: 30 }}
                 onClick={onDeleteCallback}
             />
@@ -182,7 +182,7 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
             <div className='LeftContainer'>
                 <ImageButton
                     image={'ico/plus.png'}
-                    imageAlt={'plus'}
+                    imageAlt={'添加'}
                     buttonSize={{ width: 40, height: 40 }}
                     padding={25}
                     onClick={safeAddLabelNameCallback}
@@ -190,7 +190,7 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
                 />
                 {labelNames.length > 0 && <ImageButton
                     image={enablePerClassColoration ? 'ico/colors-on.png' : 'ico/colors-off.png'}
-                    imageAlt={'per-class-coloration'}
+                    imageAlt={'按类别着色'}
                     buttonSize={{ width: 40, height: 40 }}
                     padding={15}
                     onClick={togglePerClassColorationCallback}
@@ -202,10 +202,9 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
                 <div className='Message'>
                     {
                         isUpdate ?
-                            'You can now edit the label names you use to describe the objects in the photos. Use the ' +
-                            '+ button to add a new empty text field.' :
-                            'Before you start, you can create a list of labels you plan to assign to objects in your ' +
-                            'project. You can also choose to skip that part for now and define label names as you go.'
+                            '现在你可以编辑用于描述照片中物体的标签名称。使用 + 按钮添加新的空白文本输入框。' :
+                            '在开始之前，你可以创建一份计划分配给项目中物体的标签列表。你也可以选择暂时跳过这一步，' +
+                            '在标注过程中随时定义标签名称。'
                     }
                 </div>
                 <div className='LabelsContainer'>
@@ -222,10 +221,10 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
                         >
                             <img
                                 draggable={false}
-                                alt={'upload'}
+                                alt={'上传'}
                                 src={'ico/type-writer.png'}
                             />
-                            <p className='extraBold'>Your label list is empty</p>
+                            <p className='extraBold'>你的标签列表为空</p>
                         </div>}
                 </div>
             </div>
@@ -234,11 +233,11 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
 
     return (
         <GenericYesNoPopup
-            title={isUpdate ? 'Edit labels' : 'Create labels'}
+            title={isUpdate ? '编辑标签' : '创建标签'}
             renderContent={renderContent}
-            acceptLabel={isUpdate ? 'Accept' : 'Start project'}
+            acceptLabel={isUpdate ? '接受' : '开始项目'}
             onAccept={isUpdate ? safeOnUpdateAcceptCallback : safeOnCreateAcceptCallback}
-            rejectLabel={isUpdate ? 'Cancel' : 'Load labels from file'}
+            rejectLabel={isUpdate ? '取消' : '从文件加载标签'}
             onReject={isUpdate ? onUpdateRejectCallback : onCreateRejectCallback}
         />);
 };

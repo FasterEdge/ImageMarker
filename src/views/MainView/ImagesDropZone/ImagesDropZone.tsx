@@ -48,21 +48,21 @@ const ImagesDropZone: React.FC<IProps> = (props: PropsWithChildren<IProps>) => {
                 <input {...getInputProps()} />
                 <img
                     draggable={false}
-                    alt={'upload'}
+                    alt={'上传'}
                     src={'ico/box-opened.png'}
                 />
-                <p className='extraBold'>Drop images</p>
-                <p>or</p>
-                <p className='extraBold'>Click here to select them</p>
+                <p className='extraBold'>拖放图像</p>
+                <p>或</p>
+                <p className='extraBold'>点击此处选择文件</p>
             </>;
         else if (acceptedFiles.length === 1)
             return <>
                 <img
                     draggable={false}
-                    alt={'uploaded'}
+                    alt={'已上传'}
                     src={'ico/box-closed.png'}
                 />
-                <p className='extraBold'>1 image loaded</p>
+                <p className='extraBold'>已加载 1 张图像</p>
             </>;
         else
             return <>
@@ -70,10 +70,10 @@ const ImagesDropZone: React.FC<IProps> = (props: PropsWithChildren<IProps>) => {
                 <img
                     draggable={false}
                     key={1}
-                    alt={'uploaded'}
+                    alt={'已上传'}
                     src={'ico/box-closed.png'}
                 />
-                <p key={2} className='extraBold'>{acceptedFiles.length} images loaded</p>
+                <p key={2} className='extraBold'>已加载 {acceptedFiles.length} 张图像</p>
             </>;
     };
 
@@ -87,12 +87,12 @@ const ImagesDropZone: React.FC<IProps> = (props: PropsWithChildren<IProps>) => {
             </div>
             <div className='DropZoneButtons'>
                 <TextButton
-                    label={'Object Detection'}
+                    label={'目标检测'}
                     isDisabled={!acceptedFiles.length}
                     onClick={startEditorWithObjectDetection}
                 />
                 <TextButton
-                    label={'Image recognition'}
+                    label={'图像识别'}
                     isDisabled={!acceptedFiles.length}
                     onClick={startEditorWithImageRecognition}
                 />

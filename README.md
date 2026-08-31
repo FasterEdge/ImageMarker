@@ -4,123 +4,123 @@
 [![Gitter](https://badges.aleen42.com/src/gitter.svg)](https://gitter.im/make-sense-ai/community)
 [![Discord](https://badges.aleen42.com/src/discord.svg)](https://discord.gg/ASCjCrNdA7)
 
-<h1 align="center">makesense.ai</h1>
+<h1 align="center">图像标注工具（ImageMarker）</h1>
 
 <p align="center">
     </br>
-    <img width="100" src=".//public/favicon.png" alt="make sense logo">
+    <img width="100" src=".//public/favicon.png" alt="ImageMarker 标志">
     </br>
 </p>
 
-[makesense.ai][1] is a free-to-use online tool for labeling photos. Thanks to the use of a browser it does not require any complicated installation - just visit the website and you are ready to go. It also doesn't matter which operating system you're running on - we do our best to be truly cross-platform. It is perfect for small computer vision deep learning projects, making the process of preparing a dataset much easier and faster. Prepared labels can be downloaded in one of the multiple supported formats. The application was written in TypeScript and is based on React/Redux duo.
+[ImageMarker][1] 是一款免费在线的照片标注工具。得益于浏览器的运行方式，它不需要任何复杂的安装——只需访问网站即可开始使用。同时，无论你运行的是哪个操作系统，我们都会尽力做到真正的跨平台。它非常适合小型计算机视觉深度学习项目，能够让准备数据集的过程变得更容易、更快捷。标记好的标签可以按多种支持的格式下载。该应用使用 TypeScript 编写，基于 React/Redux 技术栈。
 
-## 📄 Documentation
+## 📄 文档
 
-You can find out more about our tool from the newly released [documentation][14] - still under 🚧 construction. Let us know what topics we should cover first.
+你可以从我们最新发布的[文档][14]中了解更多关于本工具的信息——目前仍在🚧建设中。请告诉我们你最想先了解哪些主题。
 
-## 🤖 Advanced AI integrations
+## 🤖 高级 AI 集成
 
-[makesense.ai][1] strives to significantly reduce the time you have to spend on photo labeling. We are doing our best to integrate the latest and greatest AI models, that can give you recommendations as well as automate repetitive and tedious activities.
+[ImageMarker][1] 力求显著减少你在照片标注上花费的时间。我们正在尽最大努力集成最新、最强大的 AI 模型，它们既能为你提供建议，也能自动化那些重复且繁琐的工作。
 
-* [YOLOv5][16] is our most powerful integration yet. Thanks to the use of [yolov5js][17] you can load not only pretrained models from [yolov5js-zoo](18), but above all your own models trained thanks to YOLOv5 and [exported](19) to tfjs format.
-* [SSD][8] pretrained on the [COCO dataset][9], which will do some of the work for you in drawing bounding boxes on photos and also (in some cases) suggest a label. 
-* [PoseNet][11] is a vision model that can be used to estimate the pose of a person in an image or video by estimating where key body joints are.
+* [YOLOv5][16] 是我们目前功能最强大的集成。借助 [yolov5js][17]，你不仅可以加载 [yolov5js-zoo](18) 中的预训练模型，最重要的是还可以加载你自己使用 YOLOv5 训练并[导出](19)为 tfjs 格式的模型。
+* [SSD][8] 在 [COCO 数据集][9]上预训练，能帮你完成部分在照片上绘制边界框的工作，并且在某些情况下还能给出标签建议。
+* [PoseNet][11] 是一种视觉模型，通过估计人体关键关节的位置，可用于估计图像或视频中人物的姿态。
 
-The engine that drives our AI functionalities is [TensorFlow.js][10] - JS version of the most popular framework for training neural networks. This choice allows us not only to speed up your work but also to care about the privacy of your data, because unlike with other commercial and open-source tools, your photos do not have to be transferred to the server. This time AI comes to your device!
+驱动我们 AI 功能的核心引擎是 [TensorFlow.js][10]——最流行的神经网络训练框架的 JS 版本。这个选择不仅能加快你的工作速度，还能保护你的数据隐私，因为与其他商业和开源工具不同，你的照片无需传输到服务器。这一次，AI 来到了你的设备上！
 
 https://user-images.githubusercontent.com/26109316/193255987-2d01c549-48c3-41ae-87e9-e1b378968966.mov
 
-## 💻 Local Setup
+## 💻 本地配置
 
 ```bash
-# clone repository
+# 克隆仓库
 git clone https://github.com/SkalskiP/make-sense.git
 
-# navigate to main dir
+# 进入主目录
 cd make-sense
 
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:3000
+# 在 localhost:3000 启动并支持热重载
 npm start
 ```
-To ensure proper functionality of the application locally, npm `8.x.x` and node.js `v16.x.x` versions are required. More information about this problem is available in the [#16][4].
+为确保应用在本地正常运行，需要 npm `8.x.x` 和 node.js `v16.x.x` 版本。有关此问题的更多信息，请参阅 [#16][4]。
 
-## 🐳 Docker Setup
+## 🐳 Docker 部署
 
 ```bash
-# Build Docker Image
+# 构建 Docker 镜像
 docker build -t make-sense -f docker/Dockerfile .
 
-# Run Docker Image as Service
+# 以服务方式运行 Docker 镜像
 docker run -dit -p 3000:3000 --restart=always --name=make-sense make-sense
 
-# Get Docker Container Logs
+# 获取 Docker 容器日志
 docker logs make-sense
 
-# Access make-sense: http://localhost:3000/
+# 访问 make-sense: http://localhost:3000/
 ```
 
-## ⌨️ Keyboard Shortcuts
+## ⌨️ 键盘快捷键
 
-| Functionality                      | Context  | Mac | Windows / Linux  |
+| 功能                              | 使用场景 | Mac | Windows / Linux  |
 |:-----------------------------------|:--------:|:---:|:----------------:|
-| Polygon autocomplete               | Editor   | <kbd>Enter</kbd> | <kbd>Enter</kbd> |
-| Cancel polygon drawing             | Editor   | <kbd>Escape</kbd> | <kbd>Escape</kbd> |
-| Delete currently selected label    | Editor   | <kbd>Backspace</kbd> | <kbd>Delete</kbd> |
-| Load previous image                | Editor   | <kbd>⌥</kbd> + <kbd>Left</kbd> | <kbd>Ctrl</kbd> + <kbd>Left</kbd> |
-| Load next image                    | Editor   | <kbd>⌥</kbd> + <kbd>Right</kbd> | <kbd>Ctrl</kbd> + <kbd>Right</kbd> |
-| Zoom in                            | Editor   | <kbd>⌥</kbd> + <kbd>+</kbd> | <kbd>Ctrl</kbd> + <kbd>+</kbd> |
-| Zoom out                           | Editor   | <kbd>⌥</kbd> + <kbd>-</kbd> | <kbd>Ctrl</kbd> + <kbd>-</kbd> |
-| Move image                         | Editor   | <kbd>Up</kbd> / <kbd>Down</kbd> / <kbd>Left</kbd> / <kbd>Right</kbd> | <kbd>Up</kbd> / <kbd>Down</kbd> / <kbd>Left</kbd> / <kbd>Right</kbd> |
-| Select Label                       | Editor   | <kbd>⌥</kbd> + <kbd>0-9</kbd> | <kbd>Ctrl</kbd> + <kbd>0-9</kbd> |
-| Exit popup                         | Popup    | <kbd>Escape</kbd> | <kbd>Escape</kbd> |
+| 多边形自动补全                    | 编辑器   | <kbd>Enter</kbd> | <kbd>Enter</kbd> |
+| 取消多边形绘制                    | 编辑器   | <kbd>Escape</kbd> | <kbd>Escape</kbd> |
+| 删除当前选中的标签                | 编辑器   | <kbd>Backspace</kbd> | <kbd>Delete</kbd> |
+| 加载上一张图片                    | 编辑器   | <kbd>⌥</kbd> + <kbd>Left</kbd> | <kbd>Ctrl</kbd> + <kbd>Left</kbd> |
+| 加载下一张图片                    | 编辑器   | <kbd>⌥</kbd> + <kbd>Right</kbd> | <kbd>Ctrl</kbd> + <kbd>Right</kbd> |
+| 放大                              | 编辑器   | <kbd>⌥</kbd> + <kbd>+</kbd> | <kbd>Ctrl</kbd> + <kbd>+</kbd> |
+| 缩小                              | 编辑器   | <kbd>⌥</kbd> + <kbd>-</kbd> | <kbd>Ctrl</kbd> + <kbd>-</kbd> |
+| 移动图像                          | 编辑器   | <kbd>Up</kbd> / <kbd>Down</kbd> / <kbd>Left</kbd> / <kbd>Right</kbd> | <kbd>Up</kbd> / <kbd>Down</kbd> / <kbd>Left</kbd> / <kbd>Right</kbd> |
+| 选择标签                          | 编辑器   | <kbd>⌥</kbd> + <kbd>0-9</kbd> | <kbd>Ctrl</kbd> + <kbd>0-9</kbd> |
+| 退出弹窗                          | 弹窗     | <kbd>Escape</kbd> | <kbd>Escape</kbd> |
 
-**Table 1.** Supported keyboard shortcuts
+**表 1.** 支持的键盘快捷键
 
-## ⬆️ Export Formats
-
-|               | CSV | YOLO | VOC XML | VGG JSON | COCO JSON | PIXEL MASK |
-|:-------------:|:---:|:----:|:-------:|:--------:|:---------:|:----------:|
-| **Point**     | ✓   | ✗    | ☐       | ☐        | ☐         | ✗          |
-| **Line**      | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
-| **Rect**      | ✓   | ✓    | ✓       | ☐        | ☐         | ✗          |
-| **Polygon**   | ☐   | ✗    | ☐       | ✓        | ✓         | ☐          |
-| **Label**     | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
-
-**Table 2.** The matrix of supported labels export formats, where:
-* ✓ - supported format
-* ☐ - not yet supported format
-* ✗ - format does not make sense for a given label type  
-
-You can find examples of export files along with a description and schema on our [Wiki][7].
-
-## ⬇️ Import Formats
+## ⬆️ 导出格式
 
 |               | CSV | YOLO | VOC XML | VGG JSON | COCO JSON | PIXEL MASK |
 |:-------------:|:---:|:----:|:-------:|:--------:|:---------:|:----------:|
-| **Point**     | ☐   | ✗    | ☐       | ☐        | ☐         | ✗          |
-| **Line**      | ☐   | ✗    | ✗       | ✗        | ✗         | ✗          |
-| **Rect**      | ☐   | ✓    | ✓       | ☐        | ✓         | ✗          |
-| **Polygon**   | ☐   | ✗    | ☐       | ☐        | ✓         | ☐          |
-| **Label**     | ☐   | ✗    | ✗       | ✗        | ✗         | ✗          |
+| **点**       | ✓   | ✗    | ☐       | ☐        | ☐         | ✗          |
+| **线**       | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
+| **矩形**     | ✓   | ✓    | ✓       | ☐        | ☐         | ✗          |
+| **多边形**   | ☐   | ✗    | ☐       | ✓        | ✓         | ☐          |
+| **标签**     | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
 
-**Table 3.** The matrix of supported labels import formats
-* ✓ - supported format
-* ☐ - not yet supported format
-* ✗ - format does not make sense for a given label type  
+**表 2.** 支持的标签导出格式矩阵，其中：
+* ✓ - 支持的格式
+* ☐ - 尚未支持的格式
+* ✗ - 该格式对给定标签类型无意义  
 
-## 🔐 Privacy
+你可以在我们的 [Wiki][7] 上找到导出文件的示例以及说明和结构。
 
-We don't store your images, because we don't send them anywhere in the first place.
+## ⬇️ 导入格式
 
-## 🚀 Tutorials
+|               | CSV | YOLO | VOC XML | VGG JSON | COCO JSON | PIXEL MASK |
+|:-------------:|:---:|:----:|:-------:|:--------:|:---------:|:----------:|
+| **点**       | ☐   | ✗    | ☐       | ☐        | ☐         | ✗          |
+| **线**       | ☐   | ✗    | ✗       | ✗        | ✗         | ✗          |
+| **矩形**     | ☐   | ✓    | ✓       | ☐        | ✓         | ✗          |
+| **多边形**   | ☐   | ✗    | ☐       | ☐        | ✓         | ☐          |
+| **标签**     | ☐   | ✗    | ✗       | ✗        | ✗         | ✗          |
 
-If you are just starting your adventure with deep learning and would like to learn and create something cool along the way, [makesense.ai][1] can help you with that. Leverage our bounding box labeling functionality to prepare a data set and use it to train your first state-of-the-art object detection model. Follow [instructions][12] and [examples][13] but most importantly, free your creativity.
+**表 3.** 支持的标签导入格式矩阵
+* ✓ - 支持的格式
+* ☐ - 尚未支持的格式
+* ✗ - 该格式对给定标签类型无意义  
+
+## 🔐 隐私
+
+我们不会存储你的图像，因为我们从一开始就不会把它们发送到任何地方。
+
+## 🚀 教程
+
+如果你刚刚开始你的深度学习之旅，并且希望在途中学习并做出一些很酷的东西，[ImageMarker][1] 可以帮到你。利用我们的边界框标注功能准备一个数据集，并用它来训练你的第一个最先进的目标检测模型。请按照[说明][12]和[示例][13]操作，但最重要的是，释放你的创造力。
 
 
-## 🏆 Contribution
+## 🏆 贡献
 
 <p align="center"> 
     <a href="https://github.com/SkalskiP/make-sense/graphs/contributors">
@@ -128,9 +128,9 @@ If you are just starting your adventure with deep learning and would like to lea
     </a>
 </p>
 
-## 💬 Citation
+## 💬 引用
 
-Please cite Make Sense in your publications if this is useful for your research. Here is an example BibTeX entry:
+如果 Make Sense 对你的研究有帮助，请在发表的作品中引用它。这里是一个 BibTeX 示例：
 
 ```BibTeX
 @MISC{make-sense,
@@ -141,9 +141,9 @@ Please cite Make Sense in your publications if this is useful for your research.
 }
 ```
 
-## 🪧 License
+## 🪧 许可证
 
-This project is licensed under the GPL-3.0 License - see the [LICENSE][2] file for details. Copyright &copy; 2019 Piotr Skalski.
+本项目采用 GPL-3.0 许可证 —— 详情请参阅 [LICENSE][2] 文件。版权所有 &copy; 2019 Piotr Skalski。
 
 [1]: http://makesense.ai
 [2]: ./LICENSE

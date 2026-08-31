@@ -164,7 +164,7 @@ class ImagePreview extends React.Component<IProps, IState> {
                                 className="CheckBox"
                                 draggable={false}
                                 src={"ico/ok.png"}
-                                alt={"checkbox"}
+                                alt={"复选框"}
                             />}
                         </div>,
                         <div

@@ -14,80 +14,80 @@ export type DropDownMenuNode = {
 
 export const DropDownMenuData: DropDownMenuNode[] = [
     {
-        name: 'Actions',
+        name: '操作',
         imageSrc: 'ico/actions.png',
-        imageAlt: 'actions',
+        imageAlt: '操作',
         disabled: false,
         children: [
             {
-                name: 'Edit Labels',
-                description: 'Modify labels list',
+                name: '编辑标签',
+                description: '修改标签列表',
                 imageSrc: 'ico/tags.png',
-                imageAlt: 'labels',
+                imageAlt: '标签',
                 disabled: false,
                 onClick: () => store.dispatch(updateActivePopupType(PopupWindowType.UPDATE_LABEL))
             },
             {
-                name: 'Import Images',
-                description: 'Load more images',
+                name: '导入图像',
+                description: '加载更多图像',
                 imageSrc: 'ico/camera.png',
-                imageAlt: 'images',
+                imageAlt: '图像',
                 disabled: false,
                 onClick: () => store.dispatch(updateActivePopupType(PopupWindowType.IMPORT_IMAGES))
             },
             {
-                name: 'Import Annotations',
-                description: 'Import annotations from file',
+                name: '导入标注',
+                description: '从文件导入标注',
                 imageSrc: 'ico/import-labels.png',
-                imageAlt: 'import-labels',
+                imageAlt: '导入标注',
                 disabled: false,
                 onClick: () => store.dispatch(updateActivePopupType(PopupWindowType.IMPORT_ANNOTATIONS))
             },
             {
-                name: 'Export Annotations',
-                description: 'Export annotations to file',
+                name: '导出标注',
+                description: '将标注导出到文件',
                 imageSrc: 'ico/export-labels.png',
-                imageAlt: 'export-labels',
+                imageAlt: '导出标注',
                 disabled: false,
                 onClick: () => store.dispatch(updateActivePopupType(PopupWindowType.EXPORT_ANNOTATIONS))
             },
             {
-                name: 'Run AI locally',
-                description: 'Run annotation model in browser',
+                name: '本地运行 AI',
+                description: '在浏览器中运行标注模型',
                 imageSrc: 'ico/ai.png',
-                imageAlt: 'load-ai-model-in-browser',
+                imageAlt: '在浏览器中加载 AI 模型',
                 disabled: false,
                 onClick: () => store.dispatch(updateActivePopupType(PopupWindowType.LOAD_AI_MODEL))
             },
             {
-                name: 'Connect AI server',
-                description: 'Run annotation model on server',
+                name: '连接 AI 服务器',
+                description: '在服务器上运行标注模型',
                 imageSrc: 'ico/api.png',
-                imageAlt: 'connect-ai-server',
+                imageAlt: '连接 AI 服务器',
                 disabled: false,
                 onClick: () => store.dispatch(updateActivePopupType(PopupWindowType.CONNECT_AI_MODEL_VIA_API))
             },
         ]
     },
     {
-        name: 'Community',
+        name: '社区',
         imageSrc: 'ico/plant.png',
-        imageAlt: 'community',
+        imageAlt: '社区',
         disabled: false,
         children: [
             {
-                name: 'Documentation',
-                description: 'Read more about Make Sense',
+                name: '文档',
+                description: '了解更多关于 ImageMarker',
                 imageSrc: 'ico/documentation.png',
-                imageAlt: 'documentation',
+                imageAlt: '文档',
                 disabled: false,
                 onClick: () => window.open('https://skalskip.github.io/make-sense', '_blank')
             },
             {
-                name: 'Bugs and Features',
-                description: 'Report a bug or propose a new feature',
+                name: 'Bug 与功能',
+                description: '报告 Bug 或提出新功能建议',
                 imageSrc: 'ico/bug.png',
-                imageAlt: 'bug',
+                imageAlt: 'Bug',
                 disabled: false,
                 onClick: () => window.open('https://github.com/SkalskiP/make-sense/issues', '_blank')
             }

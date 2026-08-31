@@ -8,10 +8,10 @@ export const FeatureInProgress: React.FC = () => {
         >
             <img
                 draggable={false}
-                alt={"take_off"}
+                alt={"起飞"}
                 src={"ico/take-off.png"}
             />
-            <p className="extraBold">new feature <br/> coming soon...</p>
+            <p className="extraBold">新功能<br/>即将推出...</p>
         </div>
     )
 };

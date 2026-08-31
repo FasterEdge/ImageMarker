@@ -37,31 +37,31 @@ const LoadMoreImagesPopup: React.FC<IProps> = ({ addImageData }) => {
                 <input {...getInputProps()} />
                 <img
                     draggable={false}
-                    alt={'upload'}
+                    alt={'上传'}
                     src={'ico/box-opened.png'}
                 />
-                <p className='extraBold'>Add new images</p>
-                <p>or</p>
-                <p className='extraBold'>Click here to select them</p>
+                <p className='extraBold'>添加新图像</p>
+                <p>或</p>
+                <p className='extraBold'>点击此处选择文件</p>
             </>;
         else if (acceptedFiles.length === 1)
             return <>
                 <img
                     draggable={false}
-                    alt={'uploaded'}
+                    alt={'已上传'}
                     src={'ico/box-closed.png'}
                 />
-                <p className='extraBold'>1 new image loaded</p>
+                <p className='extraBold'>已加载 1 张新图像</p>
             </>;
         else
             return <>
                 <img
                     draggable={false}
                     key={1}
-                    alt={'uploaded'}
+                    alt={'已上传'}
                     src={'ico/box-closed.png'}
                 />
-                <p key={2} className='extraBold'>{acceptedFiles.length} new images loaded</p>
+                <p key={2} className='extraBold'>已加载 {acceptedFiles.length} 张新图像</p>
             </>;
     };
 
@@ -75,12 +75,12 @@ const LoadMoreImagesPopup: React.FC<IProps> = ({ addImageData }) => {
 
     return (
         <GenericYesNoPopup
-            title={'Load more images'}
+            title={'加载更多图像'}
             renderContent={renderContent}
-            acceptLabel={'Load'}
+            acceptLabel={'加载'}
             disableAcceptButton={acceptedFiles.length < 1}
             onAccept={onAccept}
-            rejectLabel={'Cancel'}
+            rejectLabel={'取消'}
             onReject={onReject}
         />
     );

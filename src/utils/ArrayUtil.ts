@@ -5,21 +5,21 @@ export type PartitionResult<T> = {
 
 export class ArrayUtilAmbiguousMatchError extends Error {
     constructor() {
-        super('Given predicate results in more than one value being matched.');
+        super('给定的谓词匹配到了多个值。');
         this.name = 'ArrayUtilAmbiguousMatchError';
     }
 }
 
 export class EmptyArrayError extends Error {
     constructor() {
-        super('Given array is empty.');
+        super('给定的数组为空。');
         this.name = 'EmptyArrayError';
     }
 }
 
 export class NegativeIndexError extends Error {
     constructor() {
-        super('Index can not be negative.');
+        super('索引不能为负数。');
         this.name = 'NegativeIndexError';
     }
 }

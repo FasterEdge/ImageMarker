@@ -136,7 +136,7 @@ const LoadYOLOv5ModelPopup: React.FC<IProps> = ({ updateActivePopupTypeAction, s
         return(<div className='left-container'>
             <ImageButton
                 image={'ico/upload.png'}
-                imageAlt={'upload model weights'}
+                imageAlt={'上传模型权重'}
                 buttonSize={{ width: 40, height: 40 }}
                 padding={15}
                 onClick={() => changeModelSource(ModelSource.UPLOAD)}
@@ -145,7 +145,7 @@ const LoadYOLOv5ModelPopup: React.FC<IProps> = ({ updateActivePopupTypeAction, s
             />
             <ImageButton
                 image={'ico/download.png'}
-                imageAlt={'download model weights'}
+                imageAlt={'下载模型权重'}
                 buttonSize={{ width: 40, height: 40 }}
                 padding={15}
                 onClick={() => changeModelSource(ModelSource.DOWNLOAD)}
@@ -166,12 +166,12 @@ const LoadYOLOv5ModelPopup: React.FC<IProps> = ({ updateActivePopupTypeAction, s
                     <img
                         draggable={false}
                         src={'ico/checkbox-checked.png'}
-                        alt={'checked'}
+                        alt={'已选中'}
                     /> :
                     <img
                         draggable={false}
                         src={'ico/checkbox-unchecked.png'}
-                        alt={'unchecked'}
+                        alt={'未选中'}
                     />}
                 {value.name}
             </div>
@@ -185,10 +185,9 @@ const LoadYOLOv5ModelPopup: React.FC<IProps> = ({ updateActivePopupTypeAction, s
     }
 
     const renderMessage = () => {
-        const uploadMessage: string = 'Drag and drop your own YOLOv5 model converted to tensorflow.js format and ' +
-            'speed up annotation process. Make sure to upload all required files: model.json, model shards as well ' +
-            'as .txt containing list of detected classes names.'
-        const downloadMessage: string = 'Use one of ours pretrained YOLOv5 models to speed up annotation process.'
+        const uploadMessage: string = '拖放你自己转换的 tensorflow.js 格式 YOLOv5 模型，加速标注过程。请确保上传所有必需文件：' +
+            'model.json、模型分片以及包含检测类别名称列表的 .txt 文件。'
+        const downloadMessage: string = '使用我们预训练的 YOLOv5 模型之一来加速标注过程。'
         return(<div className='message'>
             {modelSource === ModelSource.DOWNLOAD ? downloadMessage : uploadMessage}
         </div>)
@@ -210,23 +209,23 @@ const LoadYOLOv5ModelPopup: React.FC<IProps> = ({ updateActivePopupTypeAction, s
                 <input {...getInputProps()} />
                 <img
                     draggable={false}
-                    alt={'upload'}
+                    alt={'上传'}
                     src={'ico/box-opened.png'}
                 />
-                <p className='extraBold'>Drop model files</p>
-                <p>or</p>
-                <p className='extraBold'>Click here to select them</p>
+                <p className='extraBold'>拖放模型文件</p>
+                <p>或</p>
+                <p className='extraBold'>点击此处选择文件</p>
             </>;
         } else {
             return <>
                 <input {...getInputProps()} />
                 <img
                     draggable={false}
-                    alt={'uploaded'}
+                    alt={'已上传'}
                     src={'ico/box-closed.png'}
                 />
-                <p className='extraBold'>{modelFiles.length} model files</p>
-                <p className='extraBold'>{classNames.length} class names</p>
+                <p className='extraBold'>{modelFiles.length} 个模型文件</p>
+                <p className='extraBold'>{classNames.length} 个类别名称</p>
             </>;
         }
 
@@ -257,12 +256,12 @@ const LoadYOLOv5ModelPopup: React.FC<IProps> = ({ updateActivePopupTypeAction, s
 
     return (
         <GenericYesNoPopup
-            title={'Load YOLOv5 model'}
+            title={'加载 YOLOv5 模型'}
             renderContent={renderContent}
             disableAcceptButton={disableAcceptButton}
-            acceptLabel={'Use model!'}
+            acceptLabel={'使用模型！'}
             onAccept={onAccept}
-            rejectLabel={'Back'}
+            rejectLabel={'返回'}
             onReject={onReject}
         />
     );

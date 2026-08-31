@@ -259,7 +259,7 @@ class Editor extends React.Component<IProps, IState> {
                 >
                     <img
                         draggable={false}
-                        alt={'indicator'}
+                        alt={'指示器'}
                         src={EditorUtil.getIndicator(this.props.customCursorStyle)}
                     />
                 </div>

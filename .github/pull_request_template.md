@@ -1,5 +1,5 @@
-### Pre-flight checklist
+### 提交前检查清单
 
-- [ ] Unit tests for all non-trivial changes
-- [ ] Tested locally
-- [ ] Updated wiki
+- [ ] 所有非平凡更改的单元测试
+- [ ] 已在本地测试
+- [ ] 已更新 wiki

@@ -1,6 +1,6 @@
 {
-  "short_name": "makesense.ai",
-  "name": "makesense.ai - free to use online tool for labelling photos",
+  "short_name": "图像标注工具",
+  "name": "图像标注工具 - 免费在线的照片标注工具",
   "icons": [
     {
       "src": "favicon.ico",

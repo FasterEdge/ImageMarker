@@ -77,7 +77,7 @@ const TagLabelsList: React.FC<IProps> = (
             }),
             <ImageButton
                 image={"ico/plus.png"}
-                imageAlt={"plus"}
+                imageAlt={"添加"}
                 buttonSize={{width: 32, height: 32}}
                 onClick={addNewOnClick}
             />
@@ -98,10 +98,10 @@ const TagLabelsList: React.FC<IProps> = (
                 >
                     <img
                         draggable={false}
-                        alt={"upload"}
+                        alt={"上传"}
                         src={"ico/type-writer.png"}
                     />
-                    <p className="extraBold">Your label list is empty</p>
+                    <p className="extraBold">你的标签列表为空</p>
                 </div> :
                 <Scrollbars>
                     <div

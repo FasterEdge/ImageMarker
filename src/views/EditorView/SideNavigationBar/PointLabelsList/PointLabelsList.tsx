@@ -109,8 +109,8 @@ const PointLabelsList: React.FC<IProps> = (
         >
             {imageData.labelPoints.filter((labelPoint: LabelPoint) => labelPoint.status === LabelStatus.ACCEPTED).length === 0 ?
                 <EmptyLabelList
-                    labelBefore={'mark your first point'}
-                    labelAfter={'no labels created for this image yet'}
+                    labelBefore={'标记你的第一个点'}
+                    labelAfter={'该图像尚未创建标注'}
                 /> :
                 <Scrollbars>
                     <div

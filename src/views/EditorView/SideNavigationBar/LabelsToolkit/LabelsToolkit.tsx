@@ -123,7 +123,7 @@ class LabelsToolkit extends React.Component<IProps, IState> {
                             draggable={false}
                             className="Arrow"
                             src={"ico/down.png"}
-                            alt={"down_arrow"}
+                            alt={"向下箭头"}
                         />
                     </div>
                 </div>;

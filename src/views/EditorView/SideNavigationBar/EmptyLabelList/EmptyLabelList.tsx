@@ -13,7 +13,7 @@ const EmptyLabelList: React.FC<IProps> = ({firstLabelCreatedFlag, labelBefore, l
     const before = <>
         <img
             draggable={false}
-            alt={"lets_start"}
+            alt={"让我们开始吧"}
             src={"ico/rocket.png"}
         />
         <p className="extraBold">{labelBefore}</p>
@@ -22,7 +22,7 @@ const EmptyLabelList: React.FC<IProps> = ({firstLabelCreatedFlag, labelBefore, l
     const after = <>
         <img
             draggable={false}
-            alt={"no_labels"}
+            alt={"没有标注"}
             src={"ico/box-opened.png"}
         />
         <p className="extraBold">{labelAfter}</p>

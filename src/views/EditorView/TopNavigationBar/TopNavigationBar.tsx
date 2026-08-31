@@ -49,14 +49,14 @@ const TopNavigationBar: React.FC<IProps> = (props) => {
                             alt={'make-sense'}
                             src={'/make-sense-ico-transparent.png'}
                         />
-                        Make Sense
+                        图像标注工具
                     </div>
                 </div>
                 <div className='NavigationBarGroupWrapper'>
                     <DropDownMenu/>
                 </div>
                 <div className='NavigationBarGroupWrapper middle'>
-                    <div className='ProjectName'>Project Name:</div>
+                    <div className='ProjectName'>项目名称：</div>
                     <TextInput
                         isPassword={false}
                         value={props.projectData.name}

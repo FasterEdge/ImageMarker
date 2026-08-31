@@ -9,53 +9,47 @@ export type ExportFormatDataMap = Record<Notification, NotificationContent>;
 
 export const NotificationsDataMap: ExportFormatDataMap = {
     [Notification.EMPTY_LABEL_NAME_ERROR]: {
-        header: 'Empty label name',
-        description: "Looks like you didn't assign name to one of your labels. Unfortunately it is mandatory for " +
-            'every label to have unique name value. Insert correct name or delete empty label and try again.'
+        header: '标签名为空',
+        description: '看起来你没有为其中一个标签指定名称。不幸的是，每个标签都必须有唯一的名称值。' +
+            '请输入正确的名称，或删除空标签后重试。'
     },
     [Notification.NON_UNIQUE_LABEL_NAMES_ERROR]: {
-        header: 'Non unique label names',
-        description: 'Looks like not all your label names are unique. Unique names are necessary to guarantee correct' +
-            ' data export when you complete your work. Make your names unique and try again.'
+        header: '标签名不唯一',
+        description: '看起来你的标签名并非全部唯一。唯一的名称是确保你完成工作时数据正确导出的必要条件。' +
+            '请让标签名保持唯一后重试。'
     },
     [Notification.MODEL_DOWNLOAD_ERROR]: {
-        header: 'Model could not be downloaded',
-        description: 'Looks like we ware unable to download tensorflow.js model from external server. Make sure that ' +
-            'you are connected to internet and try again.'
+        header: '模型无法下载',
+        description: '看起来我们无法从外部服务器下载 tensorflow.js 模型。请确保你已连接网络后重试。'
     },
     [Notification.MODEL_INFERENCE_ERROR]: {
-        header: 'Inference failed',
-        description: 'Looks like we were unable to run inference of your image. Please help us improve Make Sense ' +
-            'and let us know.'
+        header: '推理失败',
+        description: '看起来我们无法对你的图像执行推理。请帮助我们改进 ImageMarker 并告知我们。'
     },
     [Notification.MODEL_LOAD_ERROR]: {
-        header: 'Model could not be loaded',
-        description: 'Looks like we ware unable to load your tensorflow.js model from uploaded files. Make sure that ' +
-            'you uploaded all model shard files. Please re-upload all model files once again.'
+        header: '模型无法加载',
+        description: '看起来我们无法从上传的文件中加载你的 tensorflow.js 模型。请确保你已上传所有模型分片文件，' +
+            '并重新上传全部模型文件。'
     },
     [Notification.LABELS_FILE_UPLOAD_ERROR]: {
-        header: 'Labels file was not uploaded',
-        description: 'Looks like you forgot to upload text file containing list of detected classes names. We need ' +
-            'it to map YOLOv5 model output to labels. Please re-upload all model files once again.'
+        header: '标签文件未上传',
+        description: '看起来你忘记上传包含检测类别名称列表的文本文件。我们需要它来将 YOLOv5 模型输出映射到标签。' +
+            '请重新上传所有模型文件。'
     },
     [Notification.ANNOTATION_FILE_PARSE_ERROR]: {
-        header: 'Annotation files could not be parsed',
-        description: 'The contents of an annotation file is not valid JSON, CSV, or XML. Please fix the files ' +
-            'selected to import and try again.',
+        header: '标注文件无法解析',
+        description: '标注文件的内容不是有效的 JSON、CSV 或 XML。请修复所选要导入的文件后重试。',
     },
     [Notification.ANNOTATION_IMPORT_ASSERTION_ERROR]: {
-        header: 'Annotation files did not contain valid data',
-        description: 'Missing or invalid annotations provided during import. Please fix the files selected ' +
-            'to import and try again.',
+        header: '标注文件不包含有效数据',
+        description: '导入过程中缺少标注或提供了无效标注。请修复所选要导入的文件后重试。',
     },
     [Notification.UNSUPPORTED_INFERENCE_SERVER_MESSAGE]: {
-        header: 'Selected inference server is not yet supported',
-        description: 'Integration with selected inference server is still under construction. Stay tuned for more ' +
-            'updates on our GitHub.'
+        header: '所选推理服务器尚不支持',
+        description: '与所选推理服务器的集成仍在建设中。请持续关注我们 GitHub 上的更多更新。'
     },
     [Notification.ROBOFLOW_INFERENCE_SERVER_ERROR]: {
-        header: 'Roboflow connection failed',
-        description: 'Looks like we ware unable to connect to your Roboflow model. Please, make sure that the model ' +
-            'specification and Roboflow API key, are correct.'
+        header: 'Roboflow 连接失败',
+        description: '看起来我们无法连接到你的 Roboflow 模型。请确保模型配置和 Roboflow API 密钥正确。'
     }
 }

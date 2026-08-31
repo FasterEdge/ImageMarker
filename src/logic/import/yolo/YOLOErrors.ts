@@ -7,28 +7,28 @@ export class YOLOAnnotationsLoadingError extends Error {
 
 export class YOLOLabelsReadingError extends YOLOAnnotationsLoadingError {
     constructor() {
-        super('Unexpected error occurred during reading label names from labels.txt file');
+        super('从 labels.txt 文件读取标签名称时发生意外错误');
         this.name = 'YOLOLabelsLoadingError';
     }
 }
 
 export class NoLabelNamesFileProvidedError extends YOLOAnnotationsLoadingError {
     constructor() {
-        super('For YOLO labels to be loaded correctly, labels.txt file is required');
+        super('要正确加载 YOLO 标签，需要提供 labels.txt 文件');
         this.name = 'NoLabelNamesFileProvidedError';
     }
 }
 
 export class LabelNamesNotUniqueError extends YOLOAnnotationsLoadingError {
     constructor() {
-        super('Label names listed in labels.txt file should be unique');
+        super('labels.txt 文件中列出的标签名称应该是唯一的');
         this.name = 'LabelNamesNotUniqueError';
     }
 }
 
 export class AnnotationsParsingError extends YOLOAnnotationsLoadingError {
     constructor(imageName: string) {
-        super(`Unexpected error occurred during parsing of ${imageName} annotations file`);
+        super(`解析 ${imageName} 的标注文件时发生意外错误`);
         this.name = 'AnnotationsParsingError';
     }
 }

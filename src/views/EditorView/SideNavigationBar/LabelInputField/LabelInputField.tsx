@@ -155,7 +155,7 @@ class LabelInputField extends React.Component<IProps, IState> {
             <ImageButton
                 externalClassName={'icon'}
                 image={this.props.isVisible ? 'ico/eye.png' : 'ico/hide.png'}
-                imageAlt={'label is hidden'}
+                imageAlt={'标签已隐藏'}
                 buttonSize={{width: 28, height: 28}}
                 onClick={() => this.props.toggleLabelVisibility(id)}
             />
@@ -193,7 +193,7 @@ class LabelInputField extends React.Component<IProps, IState> {
                                  ref={ref => this.dropdownLabel = ref}
                                  onClick={this.openDropdown}
                             >
-                                {value ? truncate(value.name, {length: Settings.MAX_DROPDOWN_OPTION_LENGTH}) : 'Select label'}
+                                {value ? truncate(value.name, {length: Settings.MAX_DROPDOWN_OPTION_LENGTH}) : '选择标签'}
                             </div>
                             {this.state.isOpen && <div
                                 className='Dropdown'
@@ -215,7 +215,7 @@ class LabelInputField extends React.Component<IProps, IState> {
                             <ImageButton
                                 externalClassName={'icon'}
                                 image={'ico/trash.png'}
-                                imageAlt={'remove label'}
+                                imageAlt={'删除标注'}
                                 buttonSize={{width: 28, height: 28}}
                                 onClick={() => onDelete(id)}
                             />

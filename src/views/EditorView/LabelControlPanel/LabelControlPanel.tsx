@@ -95,14 +95,14 @@ const LabelControlPanel: React.FC<IProps> = ({position, updatePreventCustomCurso
         {isPanelActive() && <>
             <ImageButton
                 image={"ico/plus.png"}
-                imageAlt={"plus"}
+                imageAlt={"接受"}
                 buttonSize={{width: 30, height: 30}}
                 padding={15}
                 onClick={onAccept}
             />
             <ImageButton
                 image={"ico/trash.png"}
-                imageAlt={"trash"}
+                imageAlt={"删除"}
                 buttonSize={{width: 30, height: 30}}
                 padding={15}
                 onClick={onReject}

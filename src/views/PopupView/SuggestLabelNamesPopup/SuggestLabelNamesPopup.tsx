@@ -135,12 +135,12 @@ const SuggestLabelNamesPopup: React.FC<IProps> = (
                     <img
                         draggable={false}
                         src={'ico/checkbox-checked.png'}
-                        alt={'checked'}
+                        alt={'已选中'}
                     /> :
                     <img
                         draggable={false}
                         src={'ico/checkbox-unchecked.png'}
-                        alt={'unchecked'}
+                        alt={'未选中'}
                     />}
                 {entry.name}
             </div>
@@ -150,8 +150,8 @@ const SuggestLabelNamesPopup: React.FC<IProps> = (
     const renderContent = () => {
         return(<div className='SuggestLabelNamesPopupContent'>
             <div className='Message'>
-                We found objects of classes that are not yet included in the list of labels. Select the names you
-                would like to add. This will help to speed up the labeling process.
+                我们发现了一些尚未包含在标签列表中的类别物体。请选择你想要添加的名称。
+                这将有助于加快标注过程。
             </div>
             <div className='AllToggle'>
                 <div
@@ -162,14 +162,14 @@ const SuggestLabelNamesPopup: React.FC<IProps> = (
                         <img
                             draggable={false}
                             src={'ico/checkbox-checked.png'}
-                            alt={'checked'}
+                            alt={'已选中'}
                         /> :
                         <img
                             draggable={false}
                             src={'ico/checkbox-unchecked.png'}
-                            alt={'unchecked'}
+                            alt={'未选中'}
                         />}
-                    {selectAllFlag ? 'Deselect all' : 'Select all'}
+                    {selectAllFlag ? '取消全选' : '全选'}
                 </div>
             </div>
             <div className='LabelNamesContainer'>
@@ -186,11 +186,11 @@ const SuggestLabelNamesPopup: React.FC<IProps> = (
 
     return(
         <GenericYesNoPopup
-            title={'New classes found'}
+            title={'发现新类别'}
             renderContent={renderContent}
-            acceptLabel={'Accept'}
+            acceptLabel={'接受'}
             onAccept={onAccept}
-            rejectLabel={'Reject'}
+            rejectLabel={'拒绝'}
             onReject={onReject}
         />
     );

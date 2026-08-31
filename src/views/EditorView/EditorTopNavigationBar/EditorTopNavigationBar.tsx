@@ -115,7 +115,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                 {
                     getButtonWithTooltip(
                         'zoom-in',
-                        'zoom in',
+                        '放大',
                         'ico/zoom-in.png',
                         'zoom-in',
                         false,
@@ -126,7 +126,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                 {
                     getButtonWithTooltip(
                         'zoom-out',
-                        'zoom out',
+                        '缩小',
                         'ico/zoom-out.png',
                         'zoom-out',
                         false,
@@ -137,7 +137,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                 {
                     getButtonWithTooltip(
                         'zoom-fit',
-                        'fit image to available space',
+                        '将图像适配到可用空间',
                         'ico/zoom-fit.png',
                         'zoom-fit',
                         false,
@@ -148,7 +148,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                 {
                     getButtonWithTooltip(
                         'zoom-max',
-                        'maximum allowed image zoom',
+                        '允许的最大图像缩放',
                         'ico/zoom-max.png',
                         'zoom-max',
                         false,
@@ -161,7 +161,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                 {
                     getButtonWithTooltip(
                         'image-drag-mode',
-                        imageDragMode ? 'turn-off image drag mode' : 'turn-on image drag mode - works only when image is zoomed',
+                        imageDragMode ? '关闭图像拖动模式' : '开启图像拖动模式——仅在图像缩放后可用',
                         'ico/hand.png',
                         'image-drag-mode',
                         imageDragMode,
@@ -172,7 +172,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                 {
                     getButtonWithTooltip(
                         'cursor-cross-hair',
-                        crossHairVisible ? 'turn-off cursor cross-hair' : 'turn-on cursor cross-hair',
+                        crossHairVisible ? '关闭光标十字线' : '开启光标十字线',
                         'ico/cross-hair.png',
                         'cross-hair',
                         crossHairVisible,
@@ -185,7 +185,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                     {
                         getButtonWithTooltip(
                             'accept-all',
-                            'accept all proposed detections',
+                            '接受所有建议的检测结果',
                             'ico/accept-all.png',
                             'accept-all',
                             false,
@@ -196,7 +196,7 @@ const EditorTopNavigationBar: React.FC<IProps> = (
                     {
                         getButtonWithTooltip(
                             'reject-all',
-                            'reject all proposed detections',
+                            '拒绝所有建议的检测结果',
                             'ico/reject-all.png',
                             'reject-all',
                             false,

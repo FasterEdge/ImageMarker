@@ -70,7 +70,7 @@ const MobileMainView: React.FC<IProps> = ({size}) => {
                     alt={"make-sense"}
                     src={"/make-sense-ico-transparent.png"}
                 />
-                Make Sense
+                图像标注工具
             </div>
         </div>
         <div className="TriangleHorizontal Bottom">
@@ -105,7 +105,7 @@ const MobileMainView: React.FC<IProps> = ({size}) => {
 
     const fourthStage = <div className="FourthStage">
         <div className="Message">
-            Due to the small size of the screen we do not support our editor on mobile devices. Check what you missed and visit us from a desktop.
+            由于屏幕尺寸较小，我们不支持在移动设备上使用我们的编辑器。看看你错过了什么，请从桌面端访问我们。
         </div>
         <div className="SocialMediaWrapper">
             {getSocialMediaButtons({width: 40, height: 40})}

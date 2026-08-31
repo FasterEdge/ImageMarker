@@ -23,17 +23,17 @@ interface SelectableModel {
 const models: SelectableModel[] = [
     {
         model: AIModel.YOLO_V5_OBJECT_DETECTION,
-        name: 'YOLOv5 - object detection using rectangles',
+        name: 'YOLOv5 - 使用矩形进行目标检测',
         flag: false
     },
     {
         model: AIModel.SSD_OBJECT_DETECTION,
-        name: 'COCO SSD - object detection using rectangles',
+        name: 'COCO SSD - 使用矩形进行目标检测',
         flag: false
     },
     {
         model: AIModel.POSE_DETECTION,
-        name: 'POSE-NET - pose estimation using points',
+        name: 'POSE-NET - 使用点进行姿态估计',
         flag: false
     }
 ];
@@ -101,12 +101,12 @@ const LoadModelPopup: React.FC<IProps> = ({ updateActivePopupType }) => {
                     <img
                         draggable={false}
                         src={'ico/checkbox-checked.png'}
-                        alt={'checked'}
+                        alt={'已选中'}
                     /> :
                     <img
                         draggable={false}
                         src={'ico/checkbox-unchecked.png'}
-                        alt={'unchecked'}
+                        alt={'未选中'}
                     />}
                 {entry.name}
             </div>
@@ -120,9 +120,8 @@ const LoadModelPopup: React.FC<IProps> = ({ updateActivePopupType }) => {
     const renderContent = () => {
         return <div className='LoadModelPopupContent'>
             <div className='Message'>
-                Speed up your annotation process using AI. Don't worry, your photos are still safe. To take care of
-                your privacy, we decided not to send your images to the server, but instead bring AI to you. Make sure
-                that you have a fast and stable connection - it may take a while to load the model.
+                使用 AI 加速你的标注过程。别担心，你的照片仍然是安全的。为了照顾你的隐私，我们决定不把你的图像发送到服务器，
+                而是把 AI 带到你身边。请确保你拥有快速稳定的网络连接——加载模型可能需要一些时间。
             </div>
             <div className='Companion'>
                 {modelIsLoadingStatus ?
@@ -141,12 +140,12 @@ const LoadModelPopup: React.FC<IProps> = ({ updateActivePopupType }) => {
 
     return (
         <GenericYesNoPopup
-            title={'Say hello to AI'}
+            title={'向 AI 打个招呼'}
             renderContent={renderContent}
-            acceptLabel={'Use model!'}
+            acceptLabel={'使用模型！'}
             onAccept={onAccept}
             disableAcceptButton={modelIsLoadingStatus || !extractSelectedModel()}
-            rejectLabel={"I'm going on my own"}
+            rejectLabel={'我要自己完成'}
             onReject={onReject}
             disableRejectButton={modelIsLoadingStatus}
         />

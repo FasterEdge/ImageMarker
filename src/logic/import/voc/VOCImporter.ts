@@ -64,9 +64,9 @@ export class VOCImporter extends AnnotationImporter {
                     return VOCImporter.parseDocumentIntoImageData(VOCImporter.tryParseVOCDocument(fileText), current);
                 } catch (e) {
                     if (e instanceof DocumentParsingError) {
-                        throw new DocumentParsingError(`Failed trying to parse ${fileName} as VOC XML document.`)
+                        throw new DocumentParsingError(`无法将 ${fileName} 解析为 VOC XML 文档。`)
                     } else if (e instanceof AnnotationAssertionError) {
-                        throw new AnnotationAssertionError(`Failed trying to find required VOC annotations for ${fileName}.`)
+                        throw new AnnotationAssertionError(`无法为 ${fileName} 找到所需的 VOC 标注。`)
                     } else {
                         throw e;
                     }

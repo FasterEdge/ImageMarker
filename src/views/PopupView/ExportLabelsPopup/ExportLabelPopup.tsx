@@ -62,12 +62,12 @@ const ExportLabelPopup: React.FC<IProps> = ({ activeLabelType }) => {
                     <img
                         draggable={false}
                         src={'ico/checkbox-checked.png'}
-                        alt={'checked'}
+                        alt={'已选中'}
                     /> :
                     <img
                         draggable={false}
                         src={'ico/checkbox-unchecked.png'}
-                        alt={'unchecked'}
+                        alt={'未选中'}
                     />}
                 {entry.label}
             </div>;
@@ -77,7 +77,7 @@ const ExportLabelPopup: React.FC<IProps> = ({ activeLabelType }) => {
     const renderInternalContent = (type: LabelType) => {
         return <>
             <div className='Message'>
-                Select label type and the file format you would like to use to export labels.
+                请选择标签类型以及用于导出标签的文件格式。
             </div>,
             <div className='Options'>
                 {getOptions(ExportFormatData[type])}
@@ -93,12 +93,12 @@ const ExportLabelPopup: React.FC<IProps> = ({ activeLabelType }) => {
     return (
         <GenericLabelTypePopup
             activeLabelType={labelType}
-            title={`Export ${labelType.toLowerCase()} annotations`}
+            title={`导出${labelType.toLowerCase()}标注`}
             onLabelTypeChange={onLabelTypeChange}
-            acceptLabel={'Export'}
+            acceptLabel={'导出'}
             onAccept={onAccept}
             disableAcceptButton={!exportFormatType}
-            rejectLabel={'Cancel'}
+            rejectLabel={'取消'}
             onReject={onReject}
             renderInternalContent={renderInternalContent}
         />

@@ -123,7 +123,7 @@ export class COCOImporter extends AnnotationImporter {
     public static validateCocoFormat(annotationsObject: COCOObject): void {
         const missingKeys = COCOImporter.requiredKeys.filter((key: string) => !annotationsObject.hasOwnProperty(key))
         if (missingKeys.length !== 0) {
-            throw new COCOFormatValidationError(`Uploaded file does not contain all required keys: ${missingKeys}`)
+            throw new COCOFormatValidationError(`上传的文件不包含所有必需的键：${missingKeys}`)
         }
     }
 }

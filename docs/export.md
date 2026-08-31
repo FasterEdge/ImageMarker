@@ -1,15 +1,15 @@
-# Export Formats
+# 导出格式
 
 |               | CSV | YOLO | VOC XML | VGG JSON | COCO JSON | PIXEL MASK |
 |:-------------:|:---:|:----:|:-------:|:--------:|:---------:|:----------:|
-| **Point**     | ✓   | ✗    | ☐       | ☐        | ☐         | ✗          |
-| **Line**      | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
-| **Rect**      | ✓   | ✓    | ✓       | ☐        | ☐         | ✗          |
-| **Polygon**   | ☐   | ✗    | ☐       | ✓        | ✓         | ☐          |
-| **Label**     | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
+| **点**       | ✓   | ✗    | ☐       | ☐        | ☐         | ✗          |
+| **线**       | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
+| **矩形**     | ✓   | ✓    | ✓       | ☐        | ☐         | ✗          |
+| **多边形**   | ☐   | ✗    | ☐       | ✓        | ✓         | ☐          |
+| **标签**     | ✓   | ✗    | ✗       | ✗        | ✗         | ✗          |
 
-**Table 1.** The matrix of supported labels export formats, where:
+**表 1.** 支持的标签导出格式矩阵，其中：
 
-- ✓ - supported format
-- ☐ - not yet supported format
-- ✗ - format does not make sense for a given label type  
+- ✓ - 支持的格式
+- ☐ - 尚未支持的格式
+- ✗ - 该格式对给定标签类型无意义  
