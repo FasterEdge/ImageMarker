@@ -18,8 +18,8 @@ import { RoboflowAPIDetails } from './store/ai/types';
 interface IProps {
     projectType: ProjectType;
     windowSize: ISize;
-    isObjectDetectorLoaded: boolean;
-    isPoseDetectionLoaded: boolean;
+    isSSDObjectDetectorLoaded: boolean;
+    isPoseDetectorLoaded: boolean;
     isYOLOV5ObjectDetectorLoaded: boolean;
     roboflowAPIDetails: RoboflowAPIDetails;
 }
@@ -28,8 +28,8 @@ const App: React.FC<IProps> = (
     {
         projectType,
         windowSize,
-        isObjectDetectorLoaded,
-        isPoseDetectionLoaded,
+        isSSDObjectDetectorLoaded,
+        isPoseDetectorLoaded,
         isYOLOV5ObjectDetectorLoaded,
         roboflowAPIDetails
     }
@@ -47,8 +47,8 @@ const App: React.FC<IProps> = (
             }
         }
     };
-    const isAILoaded = isObjectDetectorLoaded
-        || isPoseDetectionLoaded
+    const isAILoaded = isSSDObjectDetectorLoaded
+        || isPoseDetectorLoaded
         || isYOLOV5ObjectDetectorLoaded
         || (roboflowAPIDetails.model !== '' && roboflowAPIDetails.key !== '' && roboflowAPIDetails.status)
 
