@@ -81,7 +81,7 @@ export const DropDownMenuData: DropDownMenuNode[] = [
                 imageSrc: 'ico/documentation.png',
                 imageAlt: '文档',
                 disabled: false,
-                onClick: () => window.open('https://skalskip.github.io/make-sense', '_blank')
+                onClick: () => window.open('https://github.com/FasterEdge/ImageMarker', '_blank')
             },
             {
                 name: 'Bug 与功能',
@@ -89,7 +89,7 @@ export const DropDownMenuData: DropDownMenuNode[] = [
                 imageSrc: 'ico/bug.png',
                 imageAlt: 'Bug',
                 disabled: false,
-                onClick: () => window.open('https://github.com/SkalskiP/make-sense/issues', '_blank')
+                onClick: () => window.open('https://github.com/FasterEdge/ImageMarker/issues', '_blank')
             }
         ]
     }

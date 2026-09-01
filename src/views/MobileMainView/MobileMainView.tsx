@@ -6,8 +6,6 @@ import {AppState} from "../../store";
 import {connect} from "react-redux";
 import classNames from 'classnames'
 import {EditorFeatureData, IEditorFeature} from "../../data/info/EditorFeatureData";
-import {ISocialMedia, SocialMediaData} from "../../data/info/SocialMediaData";
-import {ImageButton} from "../Common/ImageButton/ImageButton";
 
 interface IProps {
     size: ISize;
@@ -50,25 +48,13 @@ const MobileMainView: React.FC<IProps> = ({size}) => {
         });
     };
 
-    const getSocialMediaButtons = (mediaSize:ISize) => {
-        return SocialMediaData.map((data:ISocialMedia, index: number) => {
-            return <ImageButton
-                key={index}
-                buttonSize={mediaSize}
-                image={data.imageSrc}
-                imageAlt={data.imageAlt}
-                href={data.href}
-            />
-        });
-    };
-
     const topNavigationBar = <div className={getClassName()}>
         <div className="NavigationBarGroupWrapper">
             <div className="Header">
                 <img
                     draggable={false}
-                    alt={"make-sense"}
-                    src={"/make-sense-ico-transparent.png"}
+                    alt={"ImageMarker"}
+                    src={"/Logo.png"}
                 />
                 图像标注工具
             </div>
@@ -106,9 +92,6 @@ const MobileMainView: React.FC<IProps> = ({size}) => {
     const fourthStage = <div className="FourthStage">
         <div className="Message">
             由于屏幕尺寸较小，我们不支持在移动设备上使用我们的编辑器。看看你错过了什么，请从桌面端访问我们。
-        </div>
-        <div className="SocialMediaWrapper">
-            {getSocialMediaButtons({width: 40, height: 40})}
         </div>
     </div>;
 

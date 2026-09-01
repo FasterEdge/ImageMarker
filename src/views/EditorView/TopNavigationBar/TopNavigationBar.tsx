@@ -46,8 +46,8 @@ const TopNavigationBar: React.FC<IProps> = (props) => {
                     >
                         <img
                             draggable={false}
-                            alt={'make-sense'}
-                            src={'/make-sense-ico-transparent.png'}
+                            alt={'ImageMarker'}
+                            src={'/Logo.png'}
                         />
                         图像标注工具
                     </div>

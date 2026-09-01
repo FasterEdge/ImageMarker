@@ -15,9 +15,9 @@ export const InferenceServerDataMap: Record<InferenceServerType, IInferenceServe
         isDisabled: false
     },
     [InferenceServerType.MAKESENSE]: {
-        name: 'Make Sense 推理服务器',
-        imageSrc: 'ico/make-sense-ico-transparent.png',
-        imageAlt: 'make-sense 推理服务器',
+        name: 'ImageMarker 推理服务器',
+        imageSrc: 'Logo.png',
+        imageAlt: 'ImageMarker 推理服务器',
         isDisabled: true
     }
 }

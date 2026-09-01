@@ -10,30 +10,29 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: |
-            👋 Hello @${{ github.actor }}, thank you for your interest in make-sense - free to use online tool for labelling photos! 🏷️
+            👋 你好 @${{ github.actor }}，感谢你对 ImageMarker —— 免费在线的照片标注工具 的关注！🏷️
 
-            ## 🐞 Bug reports
+            ## 🐞 Bug 反馈
 
-            If you noticed that make-sense is not working properly, please provide us with as much information as possible. To make your life easier, we have prepared a **bug report template** containing all the relevant details. We know, we ask for a lot... However, please believe that knowing all that extra information - like the type of browser you use or the version of node you have installed - really helps us to solve your problems faster and more efficiently. 😉
+            如果你发现 ImageMarker 工作不正常，请尽可能提供详细信息（浏览器类型、Node 版本、操作步骤等），这能帮助我们更快地定位并解决问题。😉
 
-            ## 💬 Get in touch
+            ## 💬 联系我们
 
-            If you've been trying to contact us but for some reason we haven't responded to your issue yet, don't hesitate to get back to us on [Gitter](https://gitter.im/make-sense-ai/community) or [Twitter](https://twitter.com/PiotrSkalski92).
+            如果你提交了 issue 但一直没有收到回复，请通过 GitHub Issues 再次联系我们：[https://github.com/FasterEdge/ImageMarker/issues](https://github.com/FasterEdge/ImageMarker/issues)
 
-            ## 💻 Local setup
+            ## 💻 本地运行
 
             ```bash
-            # clone repository
-            git clone https://github.com/SkalskiP/make-sense.git
+            # 克隆仓库
+            git clone https://github.com/FasterEdge/ImageMarker.git
 
-            # navigate to main dir
-            cd make-sense
+            # 进入主目录
+            cd ImageMarker
 
-            # install dependencies
+            # 安装依赖
             npm install
 
-            # serve with hot reload at localhost:3000
+            # 在 localhost:3000 启动并支持热重载
             npm start
             ```
-            To ensure proper functionality of the application locally, an npm `8.x.x` and node.js `v16.x.x` versions are required. More information about this problem is available in the [#16](https://github.com/SkalskiP/make-sense/issues/16) issue.
-
+            为确保应用在本地正常运行，需要 npm `8.x.x` 和 node.js `v16.x.x` 版本。
