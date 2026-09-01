@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────
+// FasterEdge 开源项目
+// Github: https://github.com/FasterEdge
+// Gitee:  https://gitee.com/FasterEdge
+// ─────────────────────────────────────────────────────────────
 import {IPoint} from '../interfaces/IPoint';
 import {IRect} from '../interfaces/IRect';
 import {ISize} from '../interfaces/ISize';
