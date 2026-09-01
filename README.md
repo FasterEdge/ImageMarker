@@ -43,7 +43,7 @@ npm start
 ### 五、Docker 部署
 ```bash
 # 构建 Docker 镜像
-docker build -t imagemarker -f docker/Dockerfile .
+docker build -t imagemarker .
 
 # 以服务方式运行 Docker 镜像
 docker run -dit -p 3000:3000 --restart=always --name=imagemarker imagemarker

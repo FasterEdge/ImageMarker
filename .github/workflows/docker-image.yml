@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: '构建 Docker 镜像'
       run: |
-        docker build -f docker/Dockerfile -t imagemarker .
+        docker build -t imagemarker .
     - name: '导出并上传镜像工件'
       run: |
         docker save imagemarker | gzip > imagemarker-image.tar.gz
