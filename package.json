@@ -1,6 +1,16 @@
 {
   "name": "make-sense",
   "version": "1.0.20260901",
+  "author": "FasterEdge <fasteredge@mutantcat.org>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FasterEdge/ImageMarker.git"
+  },
+  "homepage": "https://github.com/FasterEdge/ImageMarker",
+  "bugs": {
+    "url": "https://github.com/FasterEdge/ImageMarker/issues",
+    "email": "fasteredge@mutantcat.org"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
