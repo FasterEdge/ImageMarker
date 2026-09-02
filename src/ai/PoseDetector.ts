@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 import * as posenet from '@tensorflow-models/posenet';
 import {PoseNet} from '@tensorflow-models/posenet';
 import {Pose} from '@tensorflow-models/posenet';

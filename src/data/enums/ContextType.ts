@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 export enum ContextType {
     EDITOR = "EDITOR",
     LEFT_NAVBAR = "LEFT_NAVBAR",

@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 import * as cocoSsd from '@tensorflow-models/coco-ssd';
 import {DetectedObject, ObjectDetection} from '@tensorflow-models/coco-ssd';
 import {store} from '../index';

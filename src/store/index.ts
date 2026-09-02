@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 import { combineReducers } from 'redux';
 import {labelsReducer} from './labels/reducer';
 import {generalReducer} from './general/reducer';

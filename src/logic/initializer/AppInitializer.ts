@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 import {updateWindowSize} from '../../store/general/actionCreators';
 import {ContextManager} from '../context/ContextManager';
 import {store} from '../../index';

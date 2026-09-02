@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 import {DetectedObject, load, YOLOv5, ModelConfig} from 'yolov5js'
 import {store} from '../index';
 import {updateYOLOV5ObjectDetectorStatus} from '../store/ai/actionCreators';

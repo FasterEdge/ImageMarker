@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 import axios from 'axios';
 import { FileUtil } from '../utils/FileUtil';
 import {ImageData} from '../store/labels/types';

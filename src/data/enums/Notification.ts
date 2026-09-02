@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 export enum Notification {
     EMPTY_LABEL_NAME_ERROR = 0,
     NON_UNIQUE_LABEL_NAMES_ERROR = 1,

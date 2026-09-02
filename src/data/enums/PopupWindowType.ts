@@ -1,3 +1,4 @@
+// FasterEdge 开源项目 - Github: https://github.com/FasterEdge - Gitee: https://gitee.com/FasterEdge
 export enum PopupWindowType {
     LOAD_LABEL_NAMES = 'LOAD_LABEL_NAMES',
     UPDATE_LABEL = 'UPDATE_LABEL',
