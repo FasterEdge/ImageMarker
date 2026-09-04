@@ -2,6 +2,9 @@ name: Issue greetings
 
 on: [issues]
 
+permissions:
+  issues: write
+
 jobs:
   greeting:
     runs-on: ubuntu-latest
