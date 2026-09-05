@@ -151,7 +151,7 @@ export class RectLabelsExporter {
             const labelName: LabelName = findLast(labelNamesList, {id: labelRect.labelId});
             const labelFields = !!labelName ? [
                 `\t<object>`,
-                `\t\t<name>${labelName.name}</name>`,
+                `\t\t<name>${XMLSanitizerUtil.sanitize(labelName.name)}</name>`,
                 `\t\t<pose>Unspecified</pose>`,
                 `\t\t<truncated>0</truncated>`,
                 `\t\t<difficult>0</difficult>`,
@@ -174,11 +174,12 @@ export class RectLabelsExporter {
 
         if (labels) {
             const image: HTMLImageElement = ImageRepository.getById(imageData.id);
+            const fileName: string = XMLSanitizerUtil.sanitize(imageData.fileData.name);
             return [
                 `<annotation>`,
                 `\t<folder>${projectName}</folder>`,
-                `\t<filename>${imageData.fileData.name}</filename>`,
-                `\t<path>/${projectName}/${imageData.fileData.name}</path>`,
+                `\t<filename>${fileName}</filename>`,
+                `\t<path>/${projectName}/${fileName}</path>`,
                 `\t<source>`,
                 `\t\t<database>Unspecified</database>`,
                 `\t</source>`,
