@@ -46,6 +46,13 @@ export default ({ mode }: UserConfig): UserConfigExport => {
       logOverride: { 'this-is-undefined-in-esm': 'silent' }
     },
     css: {
+      preprocessorOptions: {
+        scss: {
+          // 项目内多处 @import 'src/...' 依赖根目录解析; vite 6 现代 sass API
+          // 使用 loadPaths(dart-sass 术语), includePaths 仅 legacy API 识别。
+          loadPaths: [process.cwd()],
+        },
+      },
       modules: {
         generateScopedName: mode === 'development' ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:8]',
         scopeBehaviour: 'local',
