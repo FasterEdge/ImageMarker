@@ -108,19 +108,35 @@ export class VOCImporter extends AnnotationImporter {
     protected static parseAnnotationsFromFileString(document: Document, labelNames: Record<string, LabelName>): 
         [LabelRect[], Record<string, LabelName>] {
         const newLabelNames: Record<string, LabelName> = Object.assign({}, labelNames);
+        // Number 而非 parseInt: parseInt("10abc")===10 部分解析畸形坐标;
+        // Number("")===0 空串陷阱(空 <xmin/> 元素)同样拒绝——只认纯数字整数。
+        const toInt = (rawValue: string): number => {
+            if (typeof rawValue !== 'string' || rawValue.trim() === '') {
+                throw new AnnotationAssertionError();
+            }
+            const n = Number(rawValue);
+            if (!Number.isInteger(n)) {
+                throw new AnnotationAssertionError();
+            }
+            return n;
+        };
         return [Array.from(document.getElementsByTagName('object')).map(d => {
             const labelName = d.getElementsByTagName('name')[0].textContent;
             const bbox = d.getElementsByTagName('bndbox')[0];
-            const xmin = parseInt(bbox.getElementsByTagName('xmin')[0].textContent);
-            const xmax = parseInt(bbox.getElementsByTagName('xmax')[0].textContent);
-            const ymin = parseInt(bbox.getElementsByTagName('ymin')[0].textContent);
-            const ymax = parseInt(bbox.getElementsByTagName('ymax')[0].textContent);
+            const xmin = toInt(bbox.getElementsByTagName('xmin')[0].textContent);
+            const xmax = toInt(bbox.getElementsByTagName('xmax')[0].textContent);
+            const ymin = toInt(bbox.getElementsByTagName('ymin')[0].textContent);
+            const ymax = toInt(bbox.getElementsByTagName('ymax')[0].textContent);
             const rect = {
                 x: xmin,
                 y: ymin,
                 height: ymax - ymin,
                 width: xmax - xmin, 
             };
+            // 负/零尺寸框(畸形 xmax<xmin / ymax<ymin)静默产出坏标注——拒绝
+            if (!(rect.width > 0 && rect.height > 0)) {
+                throw new AnnotationAssertionError();
+            }
             
             if (!newLabelNames[labelName]) {
                 newLabelNames[labelName] = LabelUtil.createLabelName(labelName);
