@@ -124,6 +124,35 @@ describe('YOLOUtils validateYOLOAnnotationComponents method', () => {
         // then
         expect(result).toBe(true);
     });
+
+    it('should return false when a component is empty (double-space trap)', () => {
+        // 回归: 孤立双空格("0  0.5 0.5 0.1 0.1")产生空组件,
+        // Number("")===0 曾让空组件通过 0<=x<=1 校验 → 静默产出 0 点错误框。
+        // given
+        const components: string[] = ['0', '', '0.5', '0.5', '0.1'];
+
+        // when
+        const result = YOLOUtils.validateYOLOAnnotationComponents(components, 3);
+
+        // then
+        expect(result).toBe(false);
+    });
+
+    it('should return false when class index is not a pure integer', () => {
+        // 回归: parseInt("0abc")===0 / parseInt("1.5")===1 部分解析,
+        // 畸形 class 索引曾被宽松接受; 现在只认纯数字整数。
+        // given
+        const badOnes: string[][] = [
+            ['0abc', '0.5', '0.5', '0.1', '0.1'],
+            ['1.5', '0.5', '0.5', '0.1', '0.1'],
+            ['-0', '0.5', '0.5', '0.1', '0.1']
+        ];
+
+        // then
+        badOnes.forEach((components: string[]) => {
+            expect(YOLOUtils.validateYOLOAnnotationComponents(components, 3)).toBe(false);
+        });
+    });
 });
 
 describe('YOLOUtils parseYOLOAnnotationFromString method', () => {
