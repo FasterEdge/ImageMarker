@@ -17,7 +17,13 @@ export class YOLOV5ObjectDetector {
     private static model: YOLOv5;
 
     public static loadModel(modelConfig: ModelConfig, onSuccess?: () => any, onFailure?: () => any) {
-        const activeImageData: ImageData = LabelsSelector.getActiveImageData();
+        // 与 LabelsSelector 守卫纪律一致: activeImageIndex 可为 null,
+        // 旧实现直接 .id 会 null 解引用 TypeError。
+        const activeImageData: ImageData | null = LabelsSelector.getActiveImageData();
+        if (!activeImageData) {
+            if (onFailure) onFailure();
+            return;
+        }
         const image = ImageRepository.getById(activeImageData.id)
         YOLOV5ObjectDetector.loadModelSafely(modelConfig, image)
             .then((model: YOLOv5) => {
