@@ -30,6 +30,9 @@ export class COCOImporter extends AnnotationImporter {
     ): void {
         if (filesData.length > 1) {
             onFailure(new COCOAnnotationFileCountError());
+            // 必须 return: 否则报错后仍继续读取并导入第一个文件,
+            // 造成 failure 与 success 双回调, 调用方状态混乱。
+            return;
         }
 
         const reader = new FileReader();
@@ -65,6 +68,11 @@ export class COCOImporter extends AnnotationImporter {
 
         for (const annotation of annotations) {
             if (!imageDataMap[annotation.image_id] || annotation.iscrowd === 1)
+                continue
+
+            // 引用不存在的 category_id 时 labelNameMap 查不到——undefined.id
+            // 会抛裸 TypeError(被外层 catch 吞成通用错误)。与 image_id 同风格跳过。
+            if (!labelNameMap[annotation.category_id])
                 continue
 
             if (this.labelType.includes(LabelType.RECT)) {
@@ -121,7 +129,7 @@ export class COCOImporter extends AnnotationImporter {
     }
 
     public static validateCocoFormat(annotationsObject: COCOObject): void {
-        const missingKeys = COCOImporter.requiredKeys.filter((key: string) => !annotationsObject.hasOwnProperty(key))
+        const missingKeys = COCOImporter.requiredKeys.filter((key: string) => !Object.prototype.hasOwnProperty.call(annotationsObject, key))
         if (missingKeys.length !== 0) {
             throw new COCOFormatValidationError(`上传的文件不包含所有必需的键：${missingKeys}`)
         }
