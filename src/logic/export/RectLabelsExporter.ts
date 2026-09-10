@@ -37,8 +37,11 @@ export class RectLabelsExporter {
                 const fileContent: string = RectLabelsExporter.wrapRectLabelsIntoYOLO(imageData);
                 if (fileContent) {
                     const fileName : string = imageData.fileData.name.replace(/\.[^/.]+$/, '.txt');
+                    // Zip Slip 防护: 条目名必须是纯文件名(剥离路径分隔符),
+                    // 否则图片名含 "../" 或 "..\" 时解压可逃逸目标目录(经典 zip 条目路径穿越)。
+                    const safeEntryName: string = fileName.split(/[/\\]/).pop() || `annotation-${ExporterUtil.getExportFileName()}.txt`;
                     try {
-                        zip.file(fileName, fileContent);
+                        zip.file(safeEntryName, fileContent);
                     } catch (error) {
                         // TODO
                         throw new Error(error as string);
@@ -69,7 +72,9 @@ export class RectLabelsExporter {
             rectSize.height / imageSize.height
         ]
 
-        let [x, y, width, height] = rawBBox.map((value: number) => parseFloat(snapAndFix(value)))
+        const parsed: number[] = rawBBox.map((value: number) => parseFloat(snapAndFix(value)))
+        const [x, y] = parsed
+        let width = parsed[2], height = parsed[3]
 
         if (x + width / 2 > 1) { width = 2 * (1 - x) }
         if (x - width / 2 < 0) { width = 2 * x }
@@ -89,7 +94,7 @@ export class RectLabelsExporter {
     ): string {
         const labelName: LabelName = findLast(labelNames, {id: labelRect.labelId});
         const labelFields = [
-            !!labelName ? labelName.name: '',
+            labelName ? labelName.name: '',
             Math.round(labelRect.rect.x).toString(),
             Math.round(labelRect.rect.y).toString(),
             Math.round(labelRect.rect.width).toString(),
@@ -122,8 +127,11 @@ export class RectLabelsExporter {
             const fileContent: string = RectLabelsExporter.wrapImageIntoVOC(imageData);
             if (fileContent) {
                 const fileName : string = imageData.fileData.name.replace(/\.[^/.]+$/, '.xml');
+                // Zip Slip 防护: 与 YOLO 导出一致, 条目名剥离路径分隔符,
+                // 防止图片名含 "../" 或 "..\" 时解压逃逸目录。
+                const safeEntryName: string = fileName.split(/[/\\]/).pop() || `annotation-${ExporterUtil.getExportFileName()}.xml`;
                 try {
-                    zip.file(fileName, fileContent);
+                    zip.file(safeEntryName, fileContent);
                 } catch (error) {
                     // TODO
                     throw new Error(error as string);
@@ -149,7 +157,7 @@ export class RectLabelsExporter {
         const labelNamesList: LabelName[] = LabelsSelector.getLabelNames();
         const labelRectsString: string[] = imageData.labelRects.map((labelRect: LabelRect) => {
             const labelName: LabelName = findLast(labelNamesList, {id: labelRect.labelId});
-            const labelFields = !!labelName ? [
+            const labelFields = labelName ? [
                 `\t<object>`,
                 `\t\t<name>${XMLSanitizerUtil.sanitize(labelName.name)}</name>`,
                 `\t\t<pose>Unspecified</pose>`,
