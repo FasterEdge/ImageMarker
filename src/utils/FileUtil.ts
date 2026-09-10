@@ -14,8 +14,16 @@ export class FileUtil {
             const url = URL.createObjectURL(fileData);
             const image = new Image();
             image.src = url;
-            image.onload = () => resolve(image);
-            image.onerror = reject;
+            image.onload = () => {
+                // 加载完成后即可回收 object URL——旧实现从不 revoke,
+                // 每张导入图片都残留一个 Blob 引用(浏览器不自动回收)。
+                URL.revokeObjectURL(url);
+                resolve(image);
+            };
+            image.onerror = (error) => {
+                URL.revokeObjectURL(url);
+                reject(error);
+            };
         });
     }
 
@@ -32,9 +40,11 @@ export class FileUtil {
     public static readFile(fileData: File): Promise<string> {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
-            reader.onloadend = (event: any) => {
-                resolve(event?.target?.result);
-            };
+            // 必须用 onload + onerror 而非 onloadend: onloadend 在成功与失败时
+            // 都会触发, 失败时 result 为 null——旧实现静默 resolve(null),
+            // 读取错误被吞, 下游(VOC/YOLO 导入)拿到 null 再解析异常, 且与
+            // loadImageBase64 的 onload/onerror 纪律不一致。
+            reader.onload = () => resolve(reader.result as string);
             reader.onerror = reject;
             reader.readAsText(fileData);
         });
