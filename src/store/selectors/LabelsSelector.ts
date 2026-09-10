@@ -62,7 +62,11 @@ export class LabelsSelector {
         if (activeLabelId === null)
             return null;
 
-        return find(LabelsSelector.getActiveImageData().labelRects, {id: activeLabelId});
+        // activeImageIndex 与 activeLabelId 是独立状态, 存在前者为 null 而
+        // 后者非 null 的窗口(切图/重置流程)——旧实现直接
+        // getActiveImageData().labelRects, null 解引用 TypeError。
+        const imageData: ImageData | null = LabelsSelector.getActiveImageData();
+        return imageData ? find(imageData.labelRects, {id: activeLabelId}) : null;
     }
 
     public static getActivePointLabel(): LabelPoint | null {
@@ -71,7 +75,8 @@ export class LabelsSelector {
         if (activeLabelId === null)
             return null;
 
-        return find(LabelsSelector.getActiveImageData().labelPoints, {id: activeLabelId});
+        const imageData: ImageData | null = LabelsSelector.getActiveImageData();
+        return imageData ? find(imageData.labelPoints, {id: activeLabelId}) : null;
     }
 
     public static getActivePolygonLabel(): LabelPolygon | null {
@@ -80,7 +85,8 @@ export class LabelsSelector {
         if (activeLabelId === null)
             return null;
 
-        return find(LabelsSelector.getActiveImageData().labelPolygons, {id: activeLabelId});
+        const imageData: ImageData | null = LabelsSelector.getActiveImageData();
+        return imageData ? find(imageData.labelPolygons, {id: activeLabelId}) : null;
     }
 
     public static getActiveLineLabel(): LabelLine | null {
@@ -89,6 +95,7 @@ export class LabelsSelector {
         if (activeLabelId === null)
             return null;
 
-        return find(LabelsSelector.getActiveImageData().labelLines, {id: activeLabelId});
+        const imageData: ImageData | null = LabelsSelector.getActiveImageData();
+        return imageData ? find(imageData.labelLines, {id: activeLabelId}) : null;
     }
 }
