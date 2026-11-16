@@ -44,8 +44,8 @@ const getButtonWithTooltip = (
         key={key}
         disableFocusListener={true}
         title={tooltipMessage}
-        TransitionComponent={Fade}
-        TransitionProps={{ timeout: 600 }}
+        slots={{ transition: Fade }}
+        slotProps={{ transition: { timeout: 600 } }}
         placement='bottom'
     >
         <div>

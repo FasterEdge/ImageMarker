@@ -144,7 +144,7 @@ export class VirtualList extends React.Component<IProps, IState> {
                 style={this.getVirtualListStyle()}
             >
                 <Scrollbars
-                    ref={ref => this.scrollbars = ref}
+                    ref={ref => { this.scrollbars = ref; }}
                     onScrollFrame={this.onScroll}
                     onScrollStart={this.onScrollStart}
                     onScrollStop={this.onScrollStop}

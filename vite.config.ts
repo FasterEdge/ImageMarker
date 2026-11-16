@@ -18,32 +18,21 @@ export default ({ mode }: UserConfig): UserConfigExport => {
       chunkSizeWarningLimit: 1024 * 1024,
       rollupOptions: {
         treeshake: true,
-        maxParallelFileReads: 4,
         output: {
-          manualChunks: {
-            lodash: ['lodash'],
-            classnames: ['classnames'],
-            runtime: ['react', 'react-is'],
-            'runtime-dom': ['react-dom'],
-
-            ai: ['@tensorflow/tfjs',
-              '@tensorflow/tfjs-backend-cpu',
-              '@tensorflow/tfjs-backend-webgl',
-              '@tensorflow/tfjs-core',
-              '@tensorflow/tfjs-node'],
-            models: [
-              '@tensorflow-models/coco-ssd',
-              '@tensorflow-models/posenet',
-            ],
-            ui: ['@mui/material', '@mui/system'],
-            moment: ['moment']
-
+          manualChunks: (id: string) => {
+            if (!id.includes('node_modules')) return undefined;
+            if (id.includes('@tensorflow-models/')) return 'models';
+            if (id.includes('@tensorflow/')) return 'ai';
+            if (id.includes('@mui/')) return 'ui';
+            if (id.includes('/lodash/')) return 'lodash';
+            if (id.includes('/classnames/')) return 'classnames';
+            if (id.includes('/react-dom/')) return 'runtime-dom';
+            if (id.includes('/react/')) return 'runtime';
+            if (id.includes('/moment/')) return 'moment';
+            return undefined;
           },
         },
       },
-    },
-    esbuild: {
-      logOverride: { 'this-is-undefined-in-esm': 'silent' }
     },
     css: {
       preprocessorOptions: {

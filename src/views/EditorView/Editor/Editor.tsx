@@ -226,11 +226,11 @@ class Editor extends React.Component<IProps, IState> {
         return (
             <div
                 className='Editor'
-                ref={ref => EditorModel.editor = ref}
+                ref={ref => { EditorModel.editor = ref; }}
                 draggable={false}
             >
                 <Scrollbars
-                    ref={ref => EditorModel.viewPortScrollbars = ref}
+                    ref={ref => { EditorModel.viewPortScrollbars = ref; }}
                     renderTrackHorizontal={props => <div {...props} className='track-horizontal'/>}
                     renderTrackVertical={props => <div {...props} className='track-vertical'/>}
                     onUpdate={this.onScrollbarsUpdate}
@@ -240,7 +240,7 @@ class Editor extends React.Component<IProps, IState> {
                     >
                         <canvas
                             className='ImageCanvas'
-                            ref={ref => EditorModel.canvas = ref}
+                            ref={ref => { EditorModel.canvas = ref; }}
                             draggable={false}
                             onContextMenu={(event: React.MouseEvent<HTMLCanvasElement>) => event.preventDefault()}
                         />
@@ -249,12 +249,12 @@ class Editor extends React.Component<IProps, IState> {
                 </Scrollbars>
                 <div
                     className='MousePositionIndicator'
-                    ref={ref => EditorModel.mousePositionIndicator = ref}
+                    ref={ref => { EditorModel.mousePositionIndicator = ref; }}
                     draggable={false}
                 />
                 <div
                     className={EditorUtil.getCursorStyle(this.props.customCursorStyle)}
-                    ref={ref => EditorModel.cursor = ref}
+                    ref={ref => { EditorModel.cursor = ref; }}
                     draggable={false}
                 >
                     <img

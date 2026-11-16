@@ -9,8 +9,8 @@ interface IProps {
     disableAcceptButton?: boolean;
     rejectLabel: string;
     onReject: () => void;
-    renderContent: () => JSX.Element;
-    renderSideMenuContent: () => JSX.Element[];
+    renderContent: () => React.JSX.Element;
+    renderSideMenuContent: () => React.JSX.Element[];
 }
 
 export const GenericSideMenuPopup: React.FC<IProps> = (

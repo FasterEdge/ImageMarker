@@ -54,7 +54,7 @@ describe('YOLOUtils parseLabelsFile method', () => {
         const content = 'orange\napple\nbanana\napple';
 
         // then
-        expect(() => { YOLOUtils.parseLabelsNamesFromString(content); }).toThrowError(new LabelNamesNotUniqueError());
+        expect(() => { YOLOUtils.parseLabelsNamesFromString(content); }).toThrow(new LabelNamesNotUniqueError());
     });
 });
 
@@ -219,7 +219,7 @@ describe('YOLOUtils parseYOLOAnnotationFromString method', () => {
         function wrapper() {
             return YOLOUtils.parseYOLOAnnotationFromString(rawAnnotation, labelNames, imageSize, imageName);
         }
-        expect(wrapper).toThrowError(new AnnotationsParsingError(imageName));
+        expect(wrapper).toThrow(new AnnotationsParsingError(imageName));
     });
 });
 
@@ -288,6 +288,6 @@ describe('YOLOUtils parseYOLOAnnotationsFromString method', () => {
         function wrapper() {
             return YOLOUtils.parseYOLOAnnotationsFromString(rawAnnotations, labelNames, imageSize, imageName);
         }
-        expect(wrapper).toThrowError(new AnnotationsParsingError(imageName));
+        expect(wrapper).toThrow(new AnnotationsParsingError(imageName));
     });
 });

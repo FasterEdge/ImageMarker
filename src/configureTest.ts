@@ -11,19 +11,23 @@ Object.defineProperty(global.self, 'crypto', {
   }
 });
 
-import { unmountComponentAtNode } from "react-dom";
+import { act } from "react";
+import { createRoot, type Root } from "react-dom/client";
 
-let container = null;
+let container: HTMLDivElement | null = null;
+let root: Root | null = null;
 beforeEach(() => {
   // setup a DOM element as a render target
   container = document.createElement("div");
   container.setAttribute("id", "root");
   document.body.appendChild(container);
+  root = createRoot(container);
 });
 
 afterEach(() => {
   // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
+  act(() => root?.unmount());
+  root = null;
+  container?.remove();
   container = null;
 });

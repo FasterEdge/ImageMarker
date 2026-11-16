@@ -129,8 +129,10 @@ const InsertLabelNamesPopup: React.FC<IProps> = (
                 value={labelName.name}
                 onChange={onChangeCallback}
                 style={{ width: 280 }}
-                InputLabelProps={{
-                    shrink: true,
+                slotProps={{
+                    inputLabel: {
+                        shrink: true,
+                    },
                 }}
             />
             {projectType === ProjectType.OBJECT_DETECTION && enablePerClassColoration && <ColorSelectorView

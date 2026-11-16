@@ -135,7 +135,7 @@ const ConnectInferenceServerPopup: React.FC<IProps> = (
                     value={roboflowModel}
                     onChange={roboflowModelOnChangeCallback}
                     style={{ width: 280 }}
-                    InputLabelProps={{ shrink: true }}
+                    slotProps={{ inputLabel: { shrink: true } }}
                 />
                 <StyledTextField
                     variant='standard'
@@ -148,13 +148,13 @@ const ConnectInferenceServerPopup: React.FC<IProps> = (
                     value={roboflowKey}
                     onChange={roboflowKeyOnChangeCallback}
                     style={{ width: 280 }}
-                    InputLabelProps={{ shrink: true }}
+                    slotProps={{ inputLabel: { shrink: true } }}
                 />
             </div>
         </>;
     }
 
-    const renderContent = (): JSX.Element => {
+    const renderContent = (): React.JSX.Element => {
         if (modelIsLoadingStatus) {
             return renderLoader()
         }
@@ -164,7 +164,7 @@ const ConnectInferenceServerPopup: React.FC<IProps> = (
         return <div className='load-model-popup-content'/>
     };
 
-    const renderSideMenuContent = (): JSX.Element[] => {
+    const renderSideMenuContent = (): React.JSX.Element[] => {
         return Object.entries(InferenceServerDataMap).map(([serverType, serverData], index: number) => {
             return <ImageButton
                 key={index}

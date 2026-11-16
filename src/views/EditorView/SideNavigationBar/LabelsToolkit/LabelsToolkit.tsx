@@ -180,7 +180,7 @@ class LabelsToolkit extends React.Component<IProps, IState> {
         return(
             <div
                 className="LabelsToolkit"
-                ref={ref => this.labelsToolkitRef = ref}
+                ref={ref => { this.labelsToolkitRef = ref; }}
                 onClick={() => ContextManager.switchCtx(ContextType.RIGHT_NAVBAR)}
             >
                 {this.state.size && this.renderChildren()}

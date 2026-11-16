@@ -190,7 +190,7 @@ class LabelInputField extends React.Component<IProps, IState> {
                     <div className='Content'>
                         <div className='ContentWrapper'>
                             <div className='DropdownLabel'
-                                 ref={ref => this.dropdownLabel = ref}
+                                 ref={ref => { this.dropdownLabel = ref; }}
                                  onClick={this.openDropdown}
                             >
                                 {value ? truncate(value.name, {length: Settings.MAX_DROPDOWN_OPTION_LENGTH}) : '选择标签'}
@@ -198,7 +198,7 @@ class LabelInputField extends React.Component<IProps, IState> {
                             {this.state.isOpen && <div
                                 className='Dropdown'
                                 style={this.getDropdownStyle()}
-                                ref={ref => this.dropdown = ref}
+                                ref={ref => { this.dropdown = ref; }}
                             >
                                 <Scrollbars
                                     renderTrackHorizontal={props => <div {...props} className='track-horizontal'/>}

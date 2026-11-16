@@ -78,19 +78,19 @@ describe('ArrayUtil match method', () => {
         function wrapper() {
             return ArrayUtil.match(array1, array2, predicate)
         }
-        expect(wrapper).toThrowError(new ArrayUtilAmbiguousMatchError());
+        expect(wrapper).toThrow(new ArrayUtilAmbiguousMatchError());
     });
 });
 
 describe('ArrayUtil getByInfiniteIndex method', () => {
     it('should throw EmptyArrayError', () => {
         // then
-        expect(() => { ArrayUtil.getByInfiniteIndex([], 0); }).toThrowError(new EmptyArrayError())
+        expect(() => { ArrayUtil.getByInfiniteIndex([], 0); }).toThrow(new EmptyArrayError())
     })
 
     it('should throw NegativeIndexError', () => {
         // then
-        expect(() => { ArrayUtil.getByInfiniteIndex([1], -1); }).toThrowError(new NegativeIndexError())
+        expect(() => { ArrayUtil.getByInfiniteIndex([1], -1); }).toThrow(new NegativeIndexError())
     })
 
     it('should return correct element', () => {
